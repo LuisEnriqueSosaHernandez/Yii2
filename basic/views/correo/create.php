@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Correo */
 
-$this->title = 'Create Correo';
+$this->title = 'Create Correo ahora xD';
 $this->params['breadcrumbs'][] = ['label' => 'Correos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

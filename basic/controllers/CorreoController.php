@@ -8,6 +8,7 @@ use app\models\CorreoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * CorreoController implements the CRUD actions for Correo model.
@@ -20,6 +21,16 @@ class CorreoController extends Controller
     public function behaviors()
     {
         return [
+        	'access'=>[
+        		'class'=>AccessControl::classname(),
+        		'only'=>['create','update'],
+        		'rules'=>[
+        			[
+        				'allow'=>true,
+        				'roles'=>['@']
+        			],
+        		]
+        	],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
