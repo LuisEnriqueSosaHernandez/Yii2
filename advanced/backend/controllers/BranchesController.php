@@ -8,6 +8,7 @@ use backend\models\BranchesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
 
 /**
  * BranchesController implements the CRUD actions for Branches model.
@@ -64,9 +65,11 @@ class BranchesController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Branches();
+        
 
-        if ($model->load(Yii::$app->request->post())) {
+        if(Yii::$app->user->can('create-branch')){
+            $model = new Branches();
+            if ($model->load(Yii::$app->request->post())) {
              $model->branch_created_date=date('Y-m-d H:i:s');
             $model->save();
             return $this->redirect(['view', 'id' => $model->branch_id]);
@@ -75,6 +78,18 @@ class BranchesController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
+        }else{
+            //formas de redirigir al mismo sitio
+            /* $searchModel = new BranchesSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+            //throw new ForbiddenHttpException;
+           return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);*/
+       // return $this->redirect(['index']);
+        return $this->actionIndex();
+        }
     }
 
     /**
