@@ -39,8 +39,17 @@ return [
             ],
         ],
         'mailer' => [
-                        'class' => 'yii\swiftmailer\Mailer',
-                        'useFileTransport'=>'false',
+            'class' => 'yii\swiftmailer\Mailer',
+            //'viewPath'=>'@common/mail',
+            'useFileTransport'=>'false',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'kiquesasuke@gmail.com',
+                'password' => '',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
                 ],
             'authManager'=>
             [
