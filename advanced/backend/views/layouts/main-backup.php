@@ -9,7 +9,6 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
-use kartik\nav\NavX;
 
 AppAsset::register($this);
 ?>
@@ -28,59 +27,36 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-	
-<?php
-
-$items = [
-        ['label' => 'Action', 'url' => '#'],
-        ['label' => 'Submenu 1', 'active'=>true, 'items' => [
-            ['label' => 'Action', 'url' => '#'],
-            ['label' => 'Another action', 'url' => '#'],
-            ['label' => 'Something else here', 'url' => '#'],
-            '<li class="divider"></li>',
-            ['label' => 'Submenu 2', 'items' => [
-                ['label' => 'Action', 'url' => '#'],
-                ['label' => 'Another action', 'url' => '#'],
-                ['label' => 'Something else here', 'url' => '#'],
-                '<li class="divider"></li>',
-                ['label' => 'Separated link', 'url' => '#'],
-            ]],
-        ]],
-        ['label' => 'Something else here', 'url' => '#'],
-        '<li class="divider"></li>',
-        ['label' => 'Separated link', 'url' => '#'],
+    <?php
+    NavBar::begin([
+        'brandLabel' => Yii::$app->name,
+        'brandUrl' => Yii::$app->homeUrl,
+        'options' => [
+            'class' => 'navbar-inverse navbar-fixed-top',
+        ],
+    ]);
+    $menuItems = [
+        ['label' => 'Home', 'url' => ['/site/index']],
     ];
-     if (Yii::$app->user->isGuest) {
-        $items[] = ['label' => 'Login', 'url' => ['/site/login']];
+    if (Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        $items[] = '<li>'
+        $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout text-right']
+                ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
             . '</li>';
     }
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-right'],
+        'items' => $menuItems,
+    ]);
+    NavBar::end();
+    ?>
 
-
-$navBarOptions=[
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top ',]];
-
-NavBar::begin($navBarOptions);
-
-echo NavX::widget([
-    'options' => ['class' => 'navbar-nav navbar-right'],
-    'items' => $items,
-    'activateParents' => true,
-    'encodeLabels' => false
-]);
-
-NavBar::end();
-?>
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
