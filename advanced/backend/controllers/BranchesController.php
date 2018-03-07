@@ -75,7 +75,7 @@ class BranchesController extends Controller
             return $this->redirect(['view', 'id' => $model->branch_id]);
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
         ]);
         }else{
