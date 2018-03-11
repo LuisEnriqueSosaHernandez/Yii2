@@ -40,12 +40,14 @@ use dosamigos\datepicker\DatePicker;
     <?= $form->field($model, 'Estado')->textInput() ?>
 
     <?= $form->field($model, 'Ciudad')->textInput() ?>
-<div class="form-group">
-<?= $form->field($model, 'Ingresos')->radio(['label' => 'Alto', 'value' => 'Alto', 'uncheck' => null]) ?>
-<?= $form->field($model, 'Ingresos')->radio(['label' => 'Medio', 'value' => 'Medio', 'uncheck' => null]) ?>
-<?= $form->field($model, 'Ingresos')->radio(['label' => 'Bajo', 'value' => 'Bajo', 'uncheck' => null]) ?>
-</div>
 
+    <?php $model->Ingresos = 'Alto';?>
+
+    <?=$form->field($model, 'Ingresos')->radioList([
+    'Alto' => 'Alto',
+    'Medio' => 'Medio',
+    'Bajo' => 'Bajo'
+    ]);?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
