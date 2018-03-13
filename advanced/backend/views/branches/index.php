@@ -28,7 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'id'=>'modal',
                     'size'=>'modal-lg'
     ]);
-    echo "<div id='Modal-Content'></div>";
+
+        echo "<div id='Modal-Content'></div>";
+
     Modal::end();
     ?>
     <?php Pjax::begin();?>
