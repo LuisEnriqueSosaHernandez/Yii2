@@ -40,17 +40,21 @@ return [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            //'viewPath'=>'@common/mail',
-            'useFileTransport'=>'false',
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.gmail.com',
-                'username' => 'kiquesasuke@gmail.com',
-                'password' => '',
-                'port' => '587',
+                'host' => 'smtp.live.com',
+                'username' => 'k_ike1095@hotmail.com',
+                'password' => 'kike12345',
+                'port' => '25',
                 'encryption' => 'tls',
+                'streamOptions' => [
+        'ssl' => [
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+        ],
+    ],
             ],
-                ],
+        ],
             'authManager'=>
             [
                 'class'=>'yii\rbac\DbManager',

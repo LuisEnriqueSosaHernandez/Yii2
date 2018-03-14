@@ -81,7 +81,7 @@ class EmailsController extends Controller
             if($model->attachment)
             {
                 $value=Yii::$app->mailer->compose()
-                ->setFrom(['kiquesasuke@gmail.com'=>'LESH'])
+                ->setFrom(['k_ike1095@hotmail.com'=>'LESH'])
                 ->setTo($model->receiver_email)
                 ->setSubject($model->subject)
                 ->setHtmlBody($model->content)
@@ -90,7 +90,7 @@ class EmailsController extends Controller
             }else
             {
                 $value=Yii::$app->mailer->compose()
-                ->setFrom(['kiquesasuke@gmail.com'=>'LESH'])
+                ->setFrom(['k_ike1095@hotmail.com'=>'LESH'])
                 ->setTo($model->receiver_email)
                 ->setSubject($model->subject)
                 ->setHtmlBody($model->content)
