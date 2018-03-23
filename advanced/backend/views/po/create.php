@@ -4,19 +4,20 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Companies */
+/* @var $model backend\models\Po */
 
-$this->title = 'Create Companies';
-$this->params['breadcrumbs'][] = ['label' => 'Companies', 'url' => ['index']];
+$this->title = 'Create Po';
+$this->params['breadcrumbs'][] = ['label' => 'Po', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="companies-create">
+<div class="po-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
-        'branch'=>$branch,
+        'modelsPoItem'=>$modelsPoItem,
+
     ]) ?>
 
 </div>

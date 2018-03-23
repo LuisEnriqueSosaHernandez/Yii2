@@ -22,6 +22,7 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
+public $successUrl = 'Success';
     public function behaviors()
     {
         return [

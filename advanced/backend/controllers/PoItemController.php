@@ -1,18 +1,18 @@
 <?php
 
-namespace backend\modules\settings\controllers;
+namespace backend\controllers;
 
 use Yii;
-use backend\modules\settings\models\Companies;
-use backend\modules\settings\models\CompaniesSearch;
+use backend\models\PoItem;
+use backend\models\PoItemSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CompaniesController implements the CRUD actions for Companies model.
+ * PoItemController implements the CRUD actions for PoItem model.
  */
-class CompaniesController extends Controller
+class PoItemController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Lists all Companies models.
+     * Lists all PoItem models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CompaniesSearch();
+        $searchModel = new PoItemSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Displays a single Companies model.
+     * Displays a single PoItem model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,31 +58,25 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Creates a new Companies model.
+     * Creates a new PoItem model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Companies();
-
-        if(Yii::$app->request->isAjax && $model->load($_POST)){
-            Yii::$app->response->format='json';
-            return \yii\widgets\ActiveForm::validate($model);
-        }
+        $model = new PoItem();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->company_id]);
-        }else{
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
 
         return $this->render('create', [
             'model' => $model,
         ]);
     }
-    }
 
     /**
-     * Updates an existing Companies model.
+     * Updates an existing PoItem model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -93,7 +87,7 @@ class CompaniesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->company_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -102,7 +96,7 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Deletes an existing Companies model.
+     * Deletes an existing PoItem model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -116,15 +110,15 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Finds the Companies model based on its primary key value.
+     * Finds the PoItem model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Companies the loaded model
+     * @return PoItem the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Companies::findOne($id)) !== null) {
+        if (($model = PoItem::findOne($id)) !== null) {
             return $model;
         }
 

@@ -15,6 +15,9 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        'authClientCollection' => [
+  'class' => 'yii\authclient\Collection',
+],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
