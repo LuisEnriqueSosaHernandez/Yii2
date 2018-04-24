@@ -5,22 +5,21 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Companies;
+use backend\models\Event;
 
 /**
- * CompaniesSearch represents the model behind the search form of `backend\models\Companies`.
+ * EventSearch represents the model behind the search form of `backend\models\Event`.
  */
-class CompaniesSearch extends Companies
+class EventSearch extends Event
 {
     /**
      * @inheritdoc
      */
-    public $globalSearch;
     public function rules()
     {
         return [
-            [['company_id'], 'integer'],
-            [['company_name','globalSearch', 'company_email', 'company_address', 'company_created_date', 'company_status'], 'safe'],
+            [['id'], 'integer'],
+            [['title', 'description', 'created_date'], 'safe'],
         ];
     }
 
@@ -42,7 +41,7 @@ class CompaniesSearch extends Companies
      */
     public function search($params)
     {
-        $query = Companies::find();
+        $query = Event::find();
 
         // add conditions that should always apply here
 
@@ -58,15 +57,14 @@ class CompaniesSearch extends Companies
             return $dataProvider;
         }
 
-        if(!($this->load($params)&&$this->validate())){
-            return $dataProvider;
-        }
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'created_date' => $this->created_date,
+        ]);
 
-        $query->orFilterWhere(['like', 'company_name', $this->globalSearch])
-            ->orFilterWhere(['like', 'company_email', $this->globalSearch])
-            ->orFilterWhere(['like', 'company_address', $this->globalSearch])
-            ->orFilterWhere(['like', 'company_status', $this->globalSearch])
-            ->orFilterWhere(['like', 'company_created_date', $this->globalSearch]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }

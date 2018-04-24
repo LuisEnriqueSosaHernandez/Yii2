@@ -35,7 +35,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    //'logout' => ['post'],
                 ],
             ],
         ];
@@ -60,7 +60,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+      // $lkrValue= Yii::$app->MyComponent->currencyConverter("MXN",'USD',200);
+       //print_r($lkrValue);
+       //die();
+         return $this->render('index');
     }
 
     /**
@@ -70,6 +73,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout="loginLayout";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
