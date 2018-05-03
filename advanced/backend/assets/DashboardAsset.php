@@ -21,7 +21,7 @@ class DashboardAsset extends AssetBundle
     ];
     public $js = [
         'js/main.js',
-        'js/bootstrap/bootstrap.min.js',
+        //'js/bootstrap/bootstrap.min.js',
         'plugins/sparkline/jquery.sparkline.min.js',
         'plugins/slimScroll/jquery.slimscroll.min.js',
         'plugins/fastclick/fastclick.min.js',

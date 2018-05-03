@@ -115,6 +115,43 @@ class BranchesController extends Controller
         }
     }
 
+    public function actionImportExcel()
+    {
+        $inputFile='uploads/branches_file.xlsx';
+        try
+        {
+            $inputFileType=\PHPExcel_IOFactory::identify($inputFile);
+            $objReader=\PHPExcel_IOFactory::createReader($inputFileType);
+            $objPHPExcel=$objReader->load($inputFile);
+        }catch(Exception $e){
+            die('Error');
+        }
+        $sheet=$objPHPExcel->getSheet(0);
+        $highestRow=$sheet->getHighestRow();
+        $highestColumn=$sheet->getHighestColumn();
+
+        for($row=1;$row<=$highestRow;$row++)
+            {
+                $rowData=$sheet->rangeToArray('A'.$row.':'.$highestColumn.$row,NULL,TRUE,FALSE);
+
+                if($row==1)
+                {
+                    continue;
+                }
+
+                $branch=new Branches();
+                $branch_id=$rowData[0][0];
+                $branch->companies_company_id=$rowData[0][1];
+                $branch->branch_name=$rowData[0][2];
+                $branch->branch_address=$rowData[0][3];
+                $branch->branch_created_date=date('Y-m-d H:i:s');
+                $branch->branch_status=$rowData[0][5];
+                $branch->save();
+                print_r($branch->getErrors());
+                }
+                die('okay');
+    }
+
     /**
      * Updates an existing Branches model.
      * If update is successful, the browser will be redirected to the 'view' page.
