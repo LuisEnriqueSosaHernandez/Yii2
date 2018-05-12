@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class'=>'kartik\grid\EditableColumn',
-                'header'=>'BRANCH',
+                'header'=>'Branch',
                 'attribute'=>'branch_name',
                // 'value'=>function($model){
                  //   return 'The branch name is '.$model->branch_name;

@@ -31,7 +31,7 @@ class DashboardAsset extends AssetBundle
         'js/main.js',
         //'js/jquery.min.js',
         'js/jquery-ui.min.js',
-        //'js/bootstrap.min.js',
+        'js/bootstrap.min.js',
         'js/raphael.min.js',
         'js/morris.min.js',
         'js/jquery.sparkline.min.js',
