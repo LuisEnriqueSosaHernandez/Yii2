@@ -9,7 +9,7 @@ $this->title = 'My Yii Application';
     <div class="jumbotron">
         <h1>LESH!</h1>
 
-        <p class="lead">Hello my little friend, is a good day for pray.</p>
+        <p class="lead"><?=Yii::t('app','Hello my little friend, is a good day for pray.')?></p>
 
         <p><a class="btn btn-lg btn-success" href="https://www.youtube.com/watch?v=ySJ1Z5o8y5w" target="_blank">Run Bitch</a></p>
     </div>

@@ -11,6 +11,8 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'language'=>'en',
+    'sourceLanguage'=>'en',
     'modules' => [
         'gridview'=>[
             'class'=>'\kartik\grid\Module',
@@ -20,6 +22,20 @@ return [
         ],
     ],
     'components' => [
+        'i18n'=>[
+            'translations'=>[
+                'app'=>[
+                    //'class'=>'yii\i18n\PhpMessageSource',
+                    'class'=>'yii\i18n\DbMessageSource',
+                    //'basePath'=>'@app/messages',
+                    'sourceLanguage'=>'en',
+                    /*'fileMap'=>[
+                        'app'=>'app.php',
+                        'app/error'=>'error.php',
+                    ],*/
+                ],
+            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
@@ -77,6 +93,9 @@ return [
             ],
         ],
         */
+    ],
+    'as beforeRequest'=>[
+        'class'=>'backend\components\CheckIfLoggedIn',
     ],
     'params' => $params,
 ];

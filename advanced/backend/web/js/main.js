@@ -1,4 +1,13 @@
 $(function(){
+    $(document).on('click','.language',function(){
+        var lang=$(this).attr('id');
+        $.post('index.php?r=site/language',{'lang':lang},function(data){
+            location.reload();
+        });
+    });
+});
+
+$(function(){
 	$(document).on('click','.fc-day',function(){
 		var date=$(this).attr('data-date');
 
@@ -14,15 +23,3 @@ $(function(){
 		$('#modal').modal('show').find('#Modal-Content').load($(this).attr('value'));
 	});
 });
-$('#modal').on('show', function(e) {
-    var modal = $(this);    
-    modal.css('position', "fixed")
-        .css('height','170px')
-        .css('width', 'auto')
-        .css('margin','0')
-        .css('top', "3%") 
-        .css('left', "3%")
-        .css('right', "3%")
-        .css('bottom', "3%");
-    return this;
-  });

@@ -227,6 +227,31 @@ class BranchesController extends Controller
      * @return Branches the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+    public function actionUpload()
+    {
+        $fileName = 'file';
+        $uploadPath = 'uploads';
+
+        if (isset($_FILES[$fileName])) {
+            $file = \yii\web\UploadedFile::getInstanceByName($fileName);
+
+            //Print file data
+            //print_r($file);
+
+            if ($file->saveAs($uploadPath . '/' . $file->name)) {
+                //Now save file data to database
+
+                echo \yii\helpers\Json::encode($file);
+            }
+    }else
+    {
+        return $this->render('upload');
+    }
+
+    return false;
+    }
+
     protected function findModel($id)
     {
         if (($model = Branches::findOne($id)) !== null) {
