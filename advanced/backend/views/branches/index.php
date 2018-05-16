@@ -34,9 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     Modal::end();
     ?>
-    
-    <?php
 
+    <?php
+    $this->params['test']='this is a test string';
+    $this->beginBlock('advertisement');?>
+    <h3>This is an advertisement</h3>
+    <?php $this->endBlock();?>
+    <?php
     $gridColumns = [
         'branch_name',
         'branch_address',
