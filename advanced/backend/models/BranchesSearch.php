@@ -49,6 +49,18 @@ class BranchesSearch extends Branches
             'query' => $query,
         ]);
 
+        $query->joinWith('companiesCompany');
+        $dataProvider->setSort([
+            'attributes'=>[
+                'branch_name',
+                'branch_address',
+                'companies_company_id'=>[
+                    'asc'=>['companies.company_name'=>SORT_ASC],
+                    'desc'=>['companies.company_name'=>SORT_DESC],
+                ]
+            ]
+        ]);
+
         $this->load($params);
 
         if (!$this->validate()) {
@@ -57,7 +69,7 @@ class BranchesSearch extends Branches
             return $dataProvider;
         }
 
-        $query->joinWith('companiesCompany');
+       
         // grid filtering conditions
         $query->andFilterWhere([
             'branch_id' => $this->branch_id,

@@ -142,7 +142,7 @@ CREATE TABLE `branches` (
   PRIMARY KEY (`branch_id`),
   KEY `companies_company_id` (`companies_company_id`),
   CONSTRAINT `branches_ibfk_1` FOREIGN KEY (`companies_company_id`) REFERENCES `companies` (`company_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +151,7 @@ CREATE TABLE `branches` (
 
 LOCK TABLES `branches` WRITE;
 /*!40000 ALTER TABLE `branches` DISABLE KEYS */;
-INSERT INTO `branches` VALUES (1,2,'sosa y valeria','En other side','2018-04-10 02:04:08','active'),(2,1,'lol','En other side','2018-04-10 02:33:09','active'),(3,2,'Nuevo','In the other side','2018-04-10 03:31:08','active'),(4,2,'A ver','No se','2018-04-10 03:37:28','active'),(5,2,'A ver','No se','2018-04-10 03:37:33','active'),(6,1,'Nuevo','In the other side','2018-04-10 03:40:47','active'),(7,3,'yolito','en otro laredo','2018-04-15 16:04:12','active'),(8,1,'brazito','en tu cora','0000-00-00 00:00:00','active'),(9,2,'importadito','en mi cora','0000-00-00 00:00:00','active'),(10,3,'caladito','en su cora','0000-00-00 00:00:00','active'),(11,1,'bolito','en tu cora','2018-05-03 03:55:02','active'),(12,2,'chetito','en mi cora','2018-05-03 03:55:03','active'),(13,3,'elotito','en su cora','2018-05-03 03:55:03','active'),(20,1,'kike','en mi casa','2018-05-07 02:34:15','active'),(21,1,'kike','En other side','2018-05-12 05:16:55','active'),(22,2,'No se','En other side','2018-05-12 05:19:49','active'),(23,2,'No se 2','En other side','2018-05-12 05:19:56','active'),(24,2,'jajaja','En other side','2018-05-12 05:20:52','active'),(25,2,'Valeria','En other side','2018-05-12 05:35:44','active'),(26,2,'Nuevo 2','En other side','2018-05-12 05:36:59','inactive'),(27,2,'kike 2','No se','2018-05-12 05:39:19','active'),(28,2,'kike3','In the other side','2018-05-12 22:25:02','active');
+INSERT INTO `branches` VALUES (1,2,'sosa y karina','En other side','2018-04-10 02:04:08','active'),(2,1,'lol','En other side','2018-04-10 02:33:09','active'),(3,2,'Nuevo','In the other side','2018-04-10 03:31:08','active'),(4,2,'A ver','No se','2018-04-10 03:37:28','active'),(5,2,'A ver','No se','2018-04-10 03:37:33','active'),(6,1,'Nuevo','In the other side','2018-04-10 03:40:47','active'),(7,3,'yolito','en otro laredo','2018-04-15 16:04:12','active'),(8,1,'brazito','en tu cora','0000-00-00 00:00:00','active'),(9,2,'importadito','en mi cora','0000-00-00 00:00:00','active'),(10,3,'caladito','en su cora','0000-00-00 00:00:00','active'),(11,1,'bolito','en tu cora','2018-05-03 03:55:02','active'),(12,2,'chetito','en mi cora','2018-05-03 03:55:03','active'),(13,3,'elotito','en su cora','2018-05-03 03:55:03','active'),(20,1,'kike','en mi casa','2018-05-07 02:34:15','active'),(21,1,'kike','En other side','2018-05-12 05:16:55','active'),(22,2,'No se','En other side','2018-05-12 05:19:49','active'),(23,2,'No se 2','En other side','2018-05-12 05:19:56','active'),(24,2,'jajaja','En other side','2018-05-12 05:20:52','active'),(25,2,'Valeria','En other side','2018-05-12 05:35:44','active'),(26,2,'Nuevo 2','En other side','2018-05-12 05:36:59','inactive'),(27,2,'kike 2','No se','2018-05-12 05:39:19','active'),(28,2,'kike3','In the other side','2018-05-12 22:25:02','active'),(32,1,'bolito','en tu cora','2018-05-19 19:51:46','active'),(33,2,'chetito','en mi cora','2018-05-19 19:51:46','active'),(34,3,'elotito','en su cora','2018-05-19 19:51:46','active');
 /*!40000 ALTER TABLE `branches` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -499,4 +499,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-14 12:30:24
+-- Dump completed on 2018-05-19 16:17:02

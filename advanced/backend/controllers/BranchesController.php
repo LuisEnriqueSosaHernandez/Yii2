@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\helpers\Json;
 use yii\widgets\ActiveForm;
+
 /**
  * BranchesController implements the CRUD actions for Branches model.
  */
@@ -37,6 +38,9 @@ class BranchesController extends Controller
      */
     public function actionIndex()
     {
+        $comments=Yii::$app->db2->createCommand("SELECT * FROM `comment`")->queryAll();
+        print_r($comments);
+        //die();
         $searchModel = new BranchesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -140,7 +144,7 @@ class BranchesController extends Controller
         $sheet=$objPHPExcel->getSheet(0);
         $highestRow=$sheet->getHighestRow();
         $highestColumn=$sheet->getHighestColumn();
-
+        $data=[];
         for($row=1;$row<=$highestRow;$row++)
             {
                 $rowData=$sheet->rangeToArray('A'.$row.':'.$highestColumn.$row,NULL,TRUE,FALSE);
@@ -149,17 +153,16 @@ class BranchesController extends Controller
                 {
                     continue;
                 }
-
-                $branch=new Branches();
-                $branch_id=$rowData[0][0];
-                $branch->companies_company_id=$rowData[0][1];
-                $branch->branch_name=$rowData[0][2];
-                $branch->branch_address=$rowData[0][3];
-                $branch->branch_created_date=date('Y-m-d H:i:s');
-                $branch->branch_status=$rowData[0][5];
-                $branch->save();
-                print_r($branch->getErrors());
+                if(!empty($rowData[0][0]))
+                {
+                     $data[]=[$rowData[0][0],$rowData[0][1],$rowData[0][2],$rowData[0][3],date('Y-m-d H:i:s'),$rowData[0][5]];
                 }
+                //print_r($branch->getErrors());
+                }
+                Yii::$app->db->createCommand()
+                ->batchInsert('branches',['branch_id','companies_company_id',
+                'branch_name','branch_address','branch_created_date','branch_status'],$data)
+                ->execute();
                 die('okay');
     }
 
