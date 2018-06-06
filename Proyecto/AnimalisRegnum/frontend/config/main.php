@@ -8,8 +8,17 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name'=>'Animalis Regnum',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'modules' => [
+        'gridview'=>[
+            'class'=>'\kartik\grid\Module',
+        ],
+        'settings' => [
+          'class' => 'backend\modules\settings\Settings',
+        ],
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [

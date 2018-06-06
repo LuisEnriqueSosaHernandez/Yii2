@@ -4,50 +4,31 @@
 
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
+<div class="row">
+    <div id="parallax">
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+            <div class="col-md-12">
+                <h1 id="titulo"><span id="a">A</span>nimalis Regnum</h1>
             </div>
         </div>
-
+    </div> 
+</div>
+<div class="row" id="visita">
+    <p>Accede al sistema para registrar a tu mascota y conocer animales en peligro de extinción</p>
+    <p>Visita nuestra sección de animales callejeros , tal vez alguno llame tu atención</p>
+</div>
+<div class="row" id="peligro">
+     <h1 id="titulo2">Conoce algunas de las especies en peligro</h1>
+     <div class="row">
+    <div class="col-md-4"><img  class="images" src="../../images/leopardo.jpg"><h2 class="name">Leopardo</h2></div>
+    <div class="col-md-4"><img  class="images" src="../../images/osopanda.jpg"><h2 class="name">Oso Panda</h2></div>
+    <div class="col-md-4"><img  class="images" src="../../images/lobo.jpg"><h2 class="name">Lobo</h2></div>
+    </div>
+    <div class="row">
+    <div class="col-md-4"><img  class="images" src="../../images/osopolar.jpg"><h2 class="name">Oso Polar</h2></div>
+    <div class="col-md-4"><img  class="images" src="../../images/tigre.jpg"><h2 class="name">Tigre</h2></div>
+    <div class="col-md-4"><img  class="images" src="../../images/tortugamarina.jpg"><h2 class="name">Tortuga</h2></div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+     background-image: url("../../../images/fondo.png");
 }
 
 .wrap {
@@ -117,4 +118,53 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+#titulo{
+    text-align: center;
+    color: #F8F8F8; 
+    font-size: 150px;
+}
+#titulo2{
+    text-align: center;
+    color: #EAEAEA; 
+    font-size: 50px;
+}
+#a{
+    color: #9A9A9A; 
+}
+#parallax{
+    margin: 0px auto;
+    background-image: url("../../../images/selva.jpg");
+    min-height: 450px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius:  5px;
+}
+#peligro{
+    margin-top: 1%;
+    border-radius:  5px;
+    text-align: center;
+    background-color: #4A4A4A;
+}
+.images{
+    height: 200px;
+    width: 200px;
+    margin: 5%;
+    border-radius: 100%;
+}
+.name{
+    font-size: 30px;
+    color: #EAEAEA;
+}
+#visita{
+     margin-top: 1%;
+    border-radius:  5px;
+    text-align: center;
+    background-color: #4A4A4A;
+}
+#visita p{
+    font-size: 30px;
+    color: #EAEAEA;
 }

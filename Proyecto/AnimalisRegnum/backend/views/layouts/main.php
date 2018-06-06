@@ -41,6 +41,9 @@ AppAsset::register($this);
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        $menuItems[] = ['label' => 'States', 'url' => ['/estados/index']];
+              $menuItems[] = ['label' => 'Municipaly', 'url' => ['/municipios/index']];
+               $menuItems[] = ['label' => 'Animals', 'url' => ['/animal/index']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
@@ -49,6 +52,7 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+            $menuItems[]='<img src="'.Yii::$app->user->identity->Foto.'"height="42px" width="42px" style="border-radius:100%;margin-top:10px"></img>';
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

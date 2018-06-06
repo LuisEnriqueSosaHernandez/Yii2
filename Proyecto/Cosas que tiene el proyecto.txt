@@ -1,0 +1,41 @@
+El proyecto tiene acceso controlado, solo usuarios registrados
+Singup
+El curp tiene validacion personalizada y tiene reglas personalizadas
+Datos unicos
+Todo esta validado
+Tiene listas y listas dependientes
+Las tablas estan relacionadas para mostrar los datos por nombre, y guardar el id
+Las listas tienen un buscador
+Selector de fecha
+los demas campos como fecha de registro se guardan en automatico
+Tiene validacion por ajax
+Menu de navegacion
+
+El usuario puede ver su foto
+
+Registro de animales
+El usuario solo puede ver sus animales
+ponerle una foto desde internet
+busqueda global
+creacion con modal
+personalizacion de los campos de visualizacion
+listas para evitar la fatiga
+submit del formulario con ajax
+el usuario puede ver animales en peligro de extincion y en abandono
+las busquedas son con ajax
+Backend
+El administrador puede crear nuevos animales con ayuda de un modal
+y lists con busqueda
+y con foto
+validacion por ajax
+acceso controlado
+busqueda global
+El puede cargar animales en abandono y en peligro de extincion
+y eliminar cualquier registro
+crear estados y municipios que se vayan anexando al programa
+
+exportar los datos a cualquier formato
+
+identificador de vivo muerto
+
+

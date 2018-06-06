@@ -44,6 +44,9 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+         $menuItems[] = ['label' => 'My Animals', 'url' => ['/animal/index']];
+              $menuItems[] = ['label' => 'Endangered animals', 'url' => ['/animal/extincion']];
+              $menuItems[] = ['label' => 'Street animals', 'url' => ['/animal/abandono']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
@@ -52,6 +55,7 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+             $menuItems[]='<img src="'.Yii::$app->user->identity->Foto.'"height="42px" width="42px" style="border-radius:100%;margin-top:10px"></img>';
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
